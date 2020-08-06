@@ -20,7 +20,7 @@ func main() {
 	}
 	paths := fs.GetFilePathsRecursively(iPath)
 	for idx, path := range paths {
-		newPath := strings.Trim(oPath, "/") + "/" + fs.GetModTime(path)[:7] + "/" + filepath.Base(path)
+		newPath := strings.TrimRight(oPath, "/") + "/" + fs.GetModTime(path)[:7] + "/" + filepath.Base(path)
 		newPaths = append(newPaths, newPath)
 		fmt.Printf("[%d] %s -> %s\n", idx+1, path, newPath)
 	}
